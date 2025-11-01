@@ -8,4 +8,7 @@ public class Hotel
     public string Adress { get; set; }
 
     public string Ratting { get; set; }
+    public int CountryId { get; set; }
+    public  Country? country { get; set; }
+
 }
