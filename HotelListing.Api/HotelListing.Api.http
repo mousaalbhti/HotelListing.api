@@ -1,0 +1,72 @@
+@HotelListing.Api_HostAddress = https://localhost:7124
+###
+@id=2
+GET {{HotelListing.Api_HostAddress}}/api/countries
+
+###
+
+POST {{HotelListing.Api_HostAddress}}/api/countries
+Content-Type: application/json
+
+{
+  "name": "Test Country",
+  "shortName": "TC"
+}
+
+###
+
+DELETE {{HotelListing.Api_HostAddress}}/api/countries/{{id}}
+
+###
+
+GET {{HotelListing.Api_HostAddress}}/api/countries/{{id}}
+
+###
+
+PUT {{HotelListing.Api_HostAddress}}/api/countries/{{id}}
+Content-Type: application/json
+
+{
+  "countryId": {{id}},
+  "name": "Jamaica",
+  "shortName": "JM"
+}
+###
+
+GET {{HotelListing.Api_HostAddress}}/api/hotels
+
+###
+
+POST {{HotelListing.Api_HostAddress}}/api/hotels
+Content-Type: application/json
+
+{
+  "Name": "Test Hotel",
+  "Address": "123 Main St",
+  "Rating": 4.5,
+  "CountryId": 3
+}
+
+###
+#@id=3
+DELETE {{HotelListing.Api_HostAddress}}/api/hotels/{{id}}
+
+###
+
+GET {{HotelListing.Api_HostAddress}}/api/hotels/{{id}}
+
+###
+
+PUT {{HotelListing.Api_HostAddress}}/api/hotels/{{id}}
+Content-Type: application/json
+
+{
+  "Id": {{id}},
+  "Name": "Ocean Coral",
+  "Address": "Trelawny, Jamaica",
+  "Rating": 4.5,
+  "CountryId": 1
+}
+
+
+###

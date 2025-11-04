@@ -1,12 +1,17 @@
-using HotelListing.api.Data;
+using HotelListing.Api.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-var ConnectionString = builder.Configuration.GetConnectionString("HotelListingDbConnectionSring");
-builder.Services.AddDbContext<HotelListingDbContext>(options =>   options.UseSqlServer(ConnectionString));
-// Add services to the container.
 
-builder.Services.AddControllers();
+// Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("HotelListingDbConnectionString");
+builder.Services.AddDbContext<HotelListingDbContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddControllers()
+    .AddJsonOptions(opt =>
+    {
+        opt.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    });
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
